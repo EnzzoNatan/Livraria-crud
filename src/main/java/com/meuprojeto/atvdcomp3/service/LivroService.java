@@ -47,6 +47,10 @@ public class LivroService {
         }
     }
 
+    public void deletarLivro(Integer id){
+        livroRepository.deleteById(id);
+    }
+
 
 
 
