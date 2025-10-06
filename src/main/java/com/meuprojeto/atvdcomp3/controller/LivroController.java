@@ -27,7 +27,7 @@ public class LivroController {
         return ResponseEntity.ok(livroService.consultarPorId(id));
     }
 
-    @GetMapping
+    @GetMapping("/buscar")
     public ResponseEntity<List<Livro>>listarTodosOsLivros(){
         return ResponseEntity.ok(livroService.listarTodosOsLivros());
     }

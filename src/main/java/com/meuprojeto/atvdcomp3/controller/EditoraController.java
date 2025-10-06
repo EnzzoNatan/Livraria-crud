@@ -26,7 +26,7 @@ public class EditoraController {
         return ResponseEntity.ok(editoraService.consultarEditoraId(id));
     }
 
-    @GetMapping
+    @GetMapping("/buscar")
     public ResponseEntity<List<Editora>> listarTodosAsEditoras(){
         return ResponseEntity.ok(editoraService.listarTodosAsEditoras());
     }

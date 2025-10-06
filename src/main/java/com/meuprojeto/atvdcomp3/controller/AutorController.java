@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/autores")
 @RequiredArgsConstructor
 public class AutorController {
 
@@ -28,7 +28,7 @@ public class AutorController {
         return ResponseEntity.ok(autorService.consultarAutorPorId(id));
     }
 
-    @GetMapping
+    @GetMapping("/buscar")
     public ResponseEntity<List<Autor>> consultarTodosAutores(){
         return ResponseEntity.ok(autorService.consultarTodosAutores());
     }

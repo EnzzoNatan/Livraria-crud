@@ -1,5 +1,6 @@
 package com.meuprojeto.atvdcomp3.model;
 
+import com.meuprojeto.atvdcomp3.enums.StatusLivro;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +29,15 @@ public class Livro {
     private BigDecimal precoDeVenda;
     private BigDecimal margemDeLucro;
     private LocalDate dataDeCadastro;
+    private StatusLivro status;
+
+    // Associacao ManyToOne com autor
+    @ManyToOne
+    @JoinColumn(name = "autor_id", nullable = false)
+    private Autor autor;
+
+    // Associacao ManyToOne com editora
+    @ManyToOne
+    @JoinColumn(name = "editora_id", nullable = false)
+    private Editora editora;
 }
