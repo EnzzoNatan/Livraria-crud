@@ -3,14 +3,13 @@ package com.meuprojeto.atvdcomp3.controller;
 import com.meuprojeto.atvdcomp3.model.Livro;
 import com.meuprojeto.atvdcomp3.service.LivroService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Request;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/livros")
 @RequiredArgsConstructor
 public class LivroController {
 
