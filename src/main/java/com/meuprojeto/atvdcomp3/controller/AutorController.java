@@ -34,13 +34,13 @@ public class AutorController {
     }
 
     @PutMapping
-    public ResponseEntity<Autor> atualizarAutores(@PathVariable Integer id, @RequestBody Autor autor){
+    public ResponseEntity<Autor> atualizarAutores(@RequestParam Integer id, @RequestBody Autor autor){
         Autor autorAtualizado = autorService.atualizarAutores(id, autor);
         return ResponseEntity.ok(autorAtualizado);
     }
 
     @DeleteMapping
-    public ResponseEntity<Autor> deletarAutor(@PathVariable Integer id){
+    public ResponseEntity<Autor> deletarAutor(@RequestParam Integer id){
         autorService.deletarAutor(id);
         return ResponseEntity.ok().build();
     }

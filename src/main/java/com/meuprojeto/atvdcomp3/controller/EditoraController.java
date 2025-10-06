@@ -32,13 +32,13 @@ public class EditoraController {
     }
 
     @PutMapping
-    public ResponseEntity<Editora> atualizarEditora(@PathVariable Integer id, @RequestBody Editora editora){
+    public ResponseEntity<Editora> atualizarEditora(@RequestParam Integer id, @RequestBody Editora editora){
         Editora editoraAtualizada = editoraService.atualizarEditora(id, editora);
         return ResponseEntity.ok(editoraAtualizada);
     }
 
     @DeleteMapping
-    public ResponseEntity<Editora> deletarEditora(@PathVariable Integer id){
+    public ResponseEntity<Editora> deletarEditora(@RequestParam Integer id){
         editoraService.deletarEditora(id);
         return ResponseEntity.ok().build();
     }

@@ -33,13 +33,13 @@ public class LivroController {
     }
 
     @PutMapping
-    public ResponseEntity<Livro> atualizarLivro(@PathVariable Integer id, @RequestBody Livro livro){
+    public ResponseEntity<Livro> atualizarLivro(@RequestParam Integer id, @RequestBody Livro livro){
         Livro livroAtualizado = livroService.atualizarLivro(id, livro);
         return ResponseEntity.ok(livroAtualizado);
     }
 
     @DeleteMapping
-    public ResponseEntity<Livro> deletarLivro(@PathVariable Integer id){
+    public ResponseEntity<Livro> deletarLivro(@RequestParam Integer id){
         livroService.deletarLivro(id);
         return ResponseEntity.ok().build();
     }
