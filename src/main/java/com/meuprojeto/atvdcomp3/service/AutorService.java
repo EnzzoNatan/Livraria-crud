@@ -40,11 +40,11 @@ public class AutorService {
             autor.setEmail(autorAtualizado.getEmail());
             autor.setNacionalidade(autorAtualizado.getNacionalidade());
 
-            return autorRepository.save(autor); // agora sim, atualiza o existente
+            return autorRepository.save(autor);
         } else {
             throw new RuntimeException("Autor com id " + id + " não encontrado");
         }
-    }
+    } //Correção na logica do método
 
 
     public void deletarAutor(Integer id){
