@@ -30,19 +30,22 @@ public class AutorService {
         return autorRepository.findAll();
     }
 
-    public Autor atualizarAutores(Integer id, Autor autor){
+    public Autor atualizarAutores(Integer id, Autor autorAtualizado) {
         Optional<Autor> autorExistente = autorRepository.findById(id);
-        if(autorExistente.isPresent()){
 
-            autor.setNome(autor.getNome());
-            autor.setEmail(autor.getEmail());
-            autor.setNacionalidade(autor.getNacionalidade());
+        if (autorExistente.isPresent()) {
+            Autor autor = autorExistente.get();
 
-            return autorRepository.save(autor);
+            autor.setNome(autorAtualizado.getNome());
+            autor.setEmail(autorAtualizado.getEmail());
+            autor.setNacionalidade(autorAtualizado.getNacionalidade());
+
+            return autorRepository.save(autor); // agora sim, atualiza o existente
         } else {
-            throw new RuntimeException("Autor com id" + id + " nao encontrado");
+            throw new RuntimeException("Autor com id " + id + " não encontrado");
         }
     }
+
 
     public void deletarAutor(Integer id){
         autorRepository.deleteById(id);

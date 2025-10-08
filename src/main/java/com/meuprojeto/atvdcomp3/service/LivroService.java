@@ -1,6 +1,7 @@
 package com.meuprojeto.atvdcomp3.service;
 
 
+import com.meuprojeto.atvdcomp3.model.Autor;
 import com.meuprojeto.atvdcomp3.model.Livro;
 import com.meuprojeto.atvdcomp3.repository.LivroRepository;
 import org.springframework.stereotype.Service;
@@ -29,17 +30,20 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
-    public Livro atualizarLivro(Integer id, Livro livro){
+    public Livro atualizarLivro(Integer id, Livro livroAtualizado){
         Optional<Livro> livroExistente = livroRepository.findById(id);
+
         if(livroExistente.isPresent()){
 
-            livro.setNome(livro.getNome());
-            livro.setIsbn(livro.getIsbn());
-            livro.setTitulo(livro.getTitulo());
-            livro.setPrecoDeCusto(livro.getPrecoDeCusto());
-            livro.setPrecoDeVenda(livro.getPrecoDeVenda());
-            livro.setMargemDeLucro(livro.getMargemDeLucro());
-            livro.setDataDeCadastro(livro.getDataDeCadastro());
+            Livro livro =  livroExistente.get();
+
+            livro.setNome(livroAtualizado.getNome());
+            livro.setIsbn(livroAtualizado.getIsbn());
+            livro.setTitulo(livroAtualizado.getTitulo());
+            livro.setPrecoDeCusto(livroAtualizado.getPrecoDeCusto());
+            livro.setPrecoDeVenda(livroAtualizado.getPrecoDeVenda());
+            livro.setMargemDeLucro(livroAtualizado.getMargemDeLucro());
+            livro.setDataDeCadastro(livroAtualizado.getDataDeCadastro());
 
             return livroRepository.save(livro);
             } else {
